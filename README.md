@@ -8,9 +8,11 @@ This project is Python code designed to run Game of Life exhibits endlessly runn
 
 ## There are two exhibits:
 
-A pre-planned collection of named life forms
+- A pre-planned collection of named life forms
 
-A random initial grid, which changes every time it is run
+= A random initial grid, which changes every time it is run
+
+- Plus a trifold flyer
 
 ## Configuring
 
