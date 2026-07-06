@@ -27,8 +27,8 @@
 import sys
 import time
 import random
+import copy
 import pygame
-#import copy
 #import os
 
 from pygame.locals import *
@@ -43,7 +43,7 @@ pygame.init()
 #screen_width, screen_height = info.current_w, info.current_h
 
 pygame.font.init()
-pygame.display.set_mode(size = (1920, 1080), flags = pygame.SCALED) #FULLSCREEN)
+pygame.display.set_mode(size = (1920, 1080), flags = pygame.FULLSCREEN)
 pygame.display.update()
 screen = pygame.display.get_surface()
 
@@ -68,6 +68,7 @@ normalFont = pygame.font.SysFont(None, 25)
 titleFont = pygame.font.SysFont(None, 200, bold=True)
 subtitleFont = pygame.font.SysFont(None, 80, bold=True)
 sciartFont = pygame.font.SysFont(None, 60)
+authorFont = pygame.font.SysFont(None, 50, bold=False, italic=True)
 
 # NB not all colors used are defined here
 whiteColor = (255, 255, 255)
@@ -78,7 +79,7 @@ explainColor = (255, 255, 200)
 
 def screenCoords(x, y): # convert grid coordinates to screen coordinates
 	""" Transform grid (x,y) coordinates to integer pygame coordinates. """
-	return (int((0.5+x-border)*cellwd), int((0.5*y-border/2)*cellht))
+	return (((0.5+x-border)*cellwd), ((0.5*y-border/2)*cellht))
 
 historyDepth = 5
 
@@ -103,7 +104,7 @@ def nextHistory():
 	 
 nextHistory() # initialise the history vector
 
-log(f"size of grid History = {len(gridHistory)}")
+log(f"Size of grid History = {len(gridHistory)}")
 
 def equalGrids(a): # only compare what the user can see (exclude the borders)
 	""" Return if the current grid is in the history list, obviously excluding itself. """
@@ -132,7 +133,7 @@ def say(sayThis, centre, color, font=boldFont):
 image = [0]*20
 maxImageIndex = len(image)-1
 for i in range(1, maxImageIndex + 1):
-    path = f"images/blend{i}.png"
+    path = f"Images/blend{i}.png"
     try:
         surf = pygame.image.load(path).convert_alpha()
         surf = pygame.transform.smoothscale(surf, (int(0.8 * cellwd), int(0.8 * cellwd)))
@@ -424,9 +425,9 @@ def start(randomised):
 		screen.fill(blend(f, blackColor, blankBoardColor))
 		say("The Game of Life", (10, 5),
 				blend(f, (255, 255, 0), blankBoardColor), font=titleFont)
-		say("Science + Art  =", (18, 27),
+		say("Science + Art  =", (19, 27),
 				blend(f, (100, 255, 100), blankBoardColor), font=sciartFont)
-		say("Sciart", (26.5, 27),
+		say("Sciart", (27.5, 27),
 				blend(f, (255, 255, 200), blankBoardColor), font=sciartFont)
 		if randomised:
 			say("Starting life with a random world", (13.5, 13),
@@ -434,10 +435,12 @@ def start(randomised):
 		else:
 			say("Starting life with a few pre-planned life forms", (9.5, 13),
 				blend(f, (230, 230, 230), blankBoardColor), font=subtitleFont)
+		# underline 'random' or 'preplanned'
 		pygame.draw.line(screen, blend(f, (255, 155, 155), blankBoardColor),
-						 screenCoords(28.15, 16.5) if randomised else screenCoords(26.9, 16.75),
-						 screenCoords(33.15, 16.5) if randomised else screenCoords(34.9, 16.75),
+						 screenCoords(28.2, 16.5) if randomised else screenCoords(26.9, 16.75),
+						 screenCoords(33.25, 16.5) if randomised else screenCoords(34.9, 16.75),
 						 width = 6)
+		say("Programmed by Harold Thimbleby, 2026", (16.5, 20), whiteColor, font=authorFont)
 		pygame.display.flip()
 		time.sleep(5 if i == fadeSteps else .02)
  
@@ -462,8 +465,10 @@ def main():
 	global explainCount
 	pygame.mouse.set_visible(False)
 	counter = 0
-	demoSchedule = [False, True] # True means random game; False means preplanned game
+	demoSchedule = [False] # True means random game; False means preplanned game
+	#while True:
 	for randomised in demoSchedule:
+		#randomised = True
 		explainCount = [0 for i in range(11)]
 		start(randomised)
 		repeatCountDown = 0
@@ -473,7 +478,7 @@ def main():
 			while True:
 				limit -= 1
 				if limit <= 0:
-					log("Stopped by hitting max limit of iterations")
+					info("Stopped by hitting max limit of iterations")
 					break;
 				counter += 1
 				plot(doExplanations = not randomised)
