@@ -14,7 +14,7 @@ As well as the Python code, `life.py`, there is a Latex flyer (`flyer.pdf` and `
 
 - A random initial grid, which changes every time it is run
 
-- Plus a trifold flyer `flyer.pdf`
+- Plus a trifold flyer `[flyer.pdf](https://github.com/haroldthimbleby/Game-of-Life-Python-exhibit/blob/main/flyer.pdf)`
 
 ## Configuring
 
