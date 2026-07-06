@@ -6,7 +6,9 @@ When I was 15 I got interested in John Conway's Game of Life reading an article 
 
 This project is Python code designed to run Game of Life exhibits endlessly running on TV monitors. (I used a Raspberry Pi with HDMI to the monitor.)
 
-As well as the Python code, `life.py`, there is a Latex flyer (`flyer.pdf` and `flyer.tex`) and a short Mathematica notebook to generate 3D-looking colored stones for live cells. The PDF of the flyer and the stone PNG files are part of this repository, so you don't need either Latex or PDF to get things to work.
+As well as the Python code, `life.py`, there is a Latex flyer ([`flyer.pdf`](https://github.com/haroldthimbleby/Game-of-Life-Python-exhibit/blob/main/flyer.pdf) and [`flyer.tex`](https://github.com/haroldthimbleby/Game-of-Life-Python-exhibit/blob/main/flyer.tex)) and a short Mathematica notebook to generate 3D-looking colored stones for live cells. The PDF of the flyer and the stone PNG files are part of this repository, so you don't need either Latex or PDF to get things to work.
+
+A [simple web page](https://www.harold.thimbleby.net/life) has a video and some interesting links.
 
 ## There are two exhibits and a tryfold flyer:
 
@@ -14,7 +16,7 @@ As well as the Python code, `life.py`, there is a Latex flyer (`flyer.pdf` and `
 
 - A random initial grid, which changes every time it is run
 
-- Plus a trifold flyer `[flyer.pdf](https://github.com/haroldthimbleby/Game-of-Life-Python-exhibit/blob/main/flyer.pdf)`
+- Plus a trifold flyer [`flyer.pdf`](https://github.com/haroldthimbleby/Game-of-Life-Python-exhibit/blob/main/flyer.pdf)
 
 ## Configuring
 
