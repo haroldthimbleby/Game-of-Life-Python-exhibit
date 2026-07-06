@@ -6,7 +6,7 @@ When I was 15 I got interested in John Conway's Game of Life reading an article 
 
 This project is Python code designed to run Game of Life exhibits endlessly running on TV monitors. (I used a Raspberry Pi with HDMI to the monitor.)
 
-As well as the Python code, `life.py`, there is a Latex flyer (`flyer.tex`) and a short Mathematica notebook to generate 3D-looking colored stones for live cells. The PDF of the flyer and the stone PNG files are part of this repository, so you don't need either Latex or PDF to get things to work.
+As well as the Python code, `life.py`, there is a Latex flyer (`flyer.pdf` and `flyer.tex`) and a short Mathematica notebook to generate 3D-looking colored stones for live cells. The PDF of the flyer and the stone PNG files are part of this repository, so you don't need either Latex or PDF to get things to work.
 
 ## There are two exhibits and a tryfold flyer:
 
