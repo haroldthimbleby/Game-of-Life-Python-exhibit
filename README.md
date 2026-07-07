@@ -32,4 +32,4 @@ The code includes hard-wired design decisions:
 
 It is perhaps easiest to configure it to have a single run (alternating preplanned and random grids) and record it all to a MP4 file on a USB stick, then put the USB in the back of a suitable monitor to play endlessly. (This means you don't need to keep a Raspberry Pi running somewhere all the time - and everyone understands switching TV monitors on/off.)
 
-If you use a saved run, you may like to record several random grids so they are all different. Just set the `demoSchedule` variable to `[False, True, False, True, False, True]` etc
+If you use a saved run, you may like to record several random grids so they are all different. Just set the `demoSchedule` variable to `[False, True, False, True, False, True]` etc, or put it all in a `while True:` loop.
